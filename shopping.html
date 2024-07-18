@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> shopping </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+        .dropdown{
+            display: none;
+            position: absolute;
+            left: -50%; /* Center horizontally */
+            top: 100%; /* Position below the profile */
+            transform: translateX(-50%); 
+        }
+        .profile:hover .dropdown{
+            display: block;
+
+        }
+        .lightbox{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+            z-index: 999;
+            text-align: center;
+        }
+        .lightbox-image{
+            max-width: 80%;
+            max-height: 80%;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        .close-button{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+
+        }
+
+ 
+        
+      
+
+        
+
+    </style>
+</head>
+<body>
+    <nav class="container flex justify-around items-center m-auto mt-4 pb-8 border-b-2 border-solid border-gray-200">
+
+    <div class="inline-block cursor-pointer md:hidden">
+                <img src="/ecommerce-product-page-main/images/icon-menu.svg"> 
+            </div>
+        <div class="text-4xl font-bold"> sneakers</div>
+       
+
+
+        <div class="hidden md:flex gap-x-4">
+        <a href="#" class="text-gray-500 border-b-2 border-solid border-transparent hover:border-b-2 hover:border-solid hover:border-orange-500">collections</a>
+        <a href="#" class="text-gray-500 hover:border-b-2 hover:border-solid hover:border-orange-500">men</a>
+        <a href="#" class="text-gray-500 hover:border-b-2 hover:border-solid hover:border-orange-500">women</a>
+        <a href="#" class="text-gray-500 hover:border-b-2 hover:border-solid hover:border-orange-500 ">career</a>
+        <a href="#" class="text-gray-500 hover:border-b-2 hover:border-solid hover:border-orange-500">about</a>
+       </div>
+
+       <div class="flex justify-center place-items-center">
+       <div class="w-full cursor-pointer relative">
+        <img src="/ecommerce-product-page-main/images/icon-cart.svg">
+        <span class="absolute bottom-0 right-1/2  m-2 text-sm bg-orange-500 rounded-full pl-1 pr-1" id="cart"> 0 </span>
+       </div>
+       <div class="profile w-1/2 border-2 border-solid border-transparent hover:border-2 hover:border-solid hover:border-orange-500 hover:rounded-full cursor-pointer relative group">
+        <img src="/ecommerce-product-page-main/images/image-avatar.png">
+        <div class="dropdown absolute hidden bg-white top-full left-1/2 mt-0  border border-gray-200 rounded shadow-lg p-4">
+            <p class="font-bold text-2xl text-left">Cart</p>
+            <div class="text-left w-32 mt-4" id="dropdown-cart"></div>
+        </div>
+       </div>
+
+    </nav>    
+
+    <section class="flex-col-reverse md:flex md:flex-row md:justify-center md:mb-12">
+
+        <div class="m-0 mt-2 p-0 md:w-1/2  md:m-12 flex flex-col md:items-center md:gap-y-6">
+            <div class="flex justify-center h-80 w-100%">
+                <img src="/ecommerce-product-page-main/images/image-product-1.jpg" class=" w-3/4 rounded-xl">
+            </div>
+
+            <div class="hidden md:flex md:gap-x-6 ">
+            <div>
+                <img src="/ecommerce-product-page-main/images/image-product-1.jpg" class="pic1 rounded-sm cursor-pointer hover:opacity-70 hover:border-2 hover:border-solid hover:border-orange-500">
+            </div>
+            <div>
+                <img src="/ecommerce-product-page-main/images/image-product-1.jpg" class="pic2  rounded-sm cursor-pointer hover:opacity-70 hover:border-2 hover:border-solid hover:border-orange-500">
+            </div>
+            <div>
+                <img src="/ecommerce-product-page-main/images/image-product-1.jpg" class="pic3 rounded-sm cursor-pointer hover:opacity-70 hover:border-2 hover:border-solid hover:border-orange-500">
+            </div>
+            <div>
+                <img src="/ecommerce-product-page-main/images/image-product-1.jpg" class="pic4  rounded-sm cursor-pointer hover:opacity-70 hover:border-2 hover:border-solid hover:border-orange-500 ">
+            </div>
+        </div>
+
+
+        <div class="lightbox" id="lightbox"> 
+            <span class="close-button" id="close-button">x</span>
+            <img src="/ecommerce-product-page-main/images/image-product-1.jpg" class="lightbox-image" id="lightbox-image">
+        </div>
+
+
+
+        
+        </div>
+
+        
+
+
+
+
+
+        <div class="mx-12 mt-12 flex flex-col gap-y-6">
+            <h6 class="text-2xl font-bold text-orange-500 uppercase">sneaker company</h6>
+            <h2 class="text-5xl font-bold" id="product-name">fall limited sneakers</h2>
+            <p class="italic text-gray-400 tracking-tight md:w-1/2">These low-profile sneakers are your perfect casual wear
+                companion. Featuring a durable rubber outer sole, they'll
+                withstand everything the weather can offer.</p>
+            <div class="flex flex-col">
+                <div class="flex justify-between items-center md:inline-block">
+                <span class="text-2xl font-bold" id="price"> $125.00 </span> <span class="text-xl font-bold p-2 text-orange-500 bg-orange-100 rounded-xl"> off 50%</span>
+               </div>
+                <p class="texl-sm text-gray-500">$250</p>
+            </div>
+            <div class="flex flex-col gap-y-4 md:flex-row md:gap-x-4">
+                <div class="bg-gray-200 flex justify-center">
+               <button class="text-sm text-orange-500  px-6  m-0 p-4 align-middle" id="reduce-btn">-</button>
+                <span class="px-6 pt-4 font-bold text-sm align-middle"id="amount" >0</span> 
+                <button class="text-sm text-orange-500  px-6 m-0 p-4  align-middle" id="add-btn" >+</button>
+                </div>
+                <button class="bg-orange-500 text-white text-xl p-2 m-2 px-6 rounded-xl hover:opacity-70" id="add-to-cart-btn"> add to cart</button>
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+
+    <script> 
+
+        const add = document.getElementById('add-btn');
+        const reduce = document.getElementById('reduce-btn');
+        const amount = document.getElementById('amount');
+        let show = 0;
+        const addtToCart = document.getElementById('add-to-cart-btn');
+        const cart = document.getElementById('cart');
+        const dropdown = document.getElementById('dropdown-cart');
+        const name = 'limited sneakers for fall';
+
+        add.addEventListener('click', () =>{
+            show++;
+            amount.innerHTML = show;
+        });
+        reduce.addEventListener('click', () => {
+            if(show === 0){
+                show = 0;
+                amount.innerHTML = show;
+            }else{
+            show--;
+            amount.innerHTML = show;
+            }
+        })
+
+        addtToCart.addEventListener('click', () => {
+            cart.innerHTML = show;
+            if(show === 0){
+                dropdown.innerHTML = 'your cart is empty';
+            }else{
+                let calculation = 125 * show;
+                dropdown.innerHTML =`<div class="text-gray-400"> ${name} </div>  <div class="text-sm text-gray-400">   125 * ${show}  = ${calculation} $ </div>`;
+
+            }
+        })
+
+
+        // JavaScript for the lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const closeLightbox = document.getElementById('close-button');
+
+// Add click event listeners to your images (pic1 to pic4)
+const pic1 = document.querySelector('.pic1');
+const pic2 = document.querySelector('.pic2');
+const pic3 = document.querySelector('.pic3');
+const pic4 = document.querySelector('.pic4');
+
+pic1.addEventListener('click', () => {
+  openLightbox('/ecommerce-product-page-main/images/image-product-1.jpg');
+});
+
+pic2.addEventListener('click', () => {
+  openLightbox('/ecommerce-product-page-main/images/image-product-1.jpg');
+});
+
+pic3.addEventListener('click', () => {
+  openLightbox('/ecommerce-product-page-main/images/image-product-1.jpg');
+});
+
+pic4.addEventListener('click', () => {
+  openLightbox('/ecommerce-product-page-main/images/image-product-1.jpg');
+});
+
+// Function to open the lightbox
+function openLightbox(imageSrc) {
+  lightboxImage.src = imageSrc;
+  lightbox.style.display = 'block';
+}
+
+// Function to close the lightbox
+function closeLightboxs() {
+  lightbox.style.display = 'none';
+}
+
+// Close the lightbox when clicking the close button
+closeLightbox.addEventListener('click', () => {
+  closeLightboxs();
+});
+
+// Close the lightbox when clicking outside the image
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    closeLightboxs();
+  }
+});
+
+
+ 
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
